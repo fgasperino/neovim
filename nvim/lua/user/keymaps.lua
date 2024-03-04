@@ -55,18 +55,18 @@ keymap.set('n', '<leader>tt', '<cmd>NvimTreeToggle<cr>', { desc = '' })
 -- Telescope
 local builtin = require('telescope.builtin')
 
-keymap.set('n', '<leader>ff', builtin.find_files, { desc = 'Find [F]iles (fuzzy)' })
-keymap.set('n', '<leader>fg', builtin.live_grep, { desc = '[G]rep in Files (fuzzy)' })
-keymap.set('n', '<leader>fsw', builtin.grep_string, { desc = 'Search directory for current [W]ord (fuzzy)' })
-keymap.set('n', '<leader>fsi', ":lua require('telescope.builtin').grep_string({search=vim.fn.input('Grep for: ')})<cr>", { desc = 'Search directory for [I]nput' })
-keymap.set('n', '<leader>fb', builtin.buffers, { desc = 'Find [B]uffers (fuzzy)' })
-keymap.set('n', '<leader>fr', builtin.oldfiles, { desc = 'Find [R]ecent Files (fuzzy)' })
+keymap.set('n', '<leader>ff', builtin.find_files, { desc = 'Find Files (fuzzy)' })
+keymap.set('n', '<leader>fg', builtin.live_grep, { desc = 'Grep in Files (fuzzy)' })
+keymap.set('n', '<leader>fsw', builtin.grep_string, { desc = 'Search directory for current Word (fuzzy)' })
+keymap.set('n', '<leader>fsi', ":lua require('telescope.builtin').grep_string({search=vim.fn.input('Grep for: ')})<cr>", { desc = 'Search directory for Input' })
+keymap.set('n', '<leader>fb', builtin.buffers, { desc = 'Find Buffers (fuzzy)' })
+keymap.set('n', '<leader>fr', builtin.oldfiles, { desc = 'Find Recent Files (fuzzy)' })
 
-keymap.set('n', '<leader>fgc', '<cmd>:Telescope git_commits<cr>', { desc = '[C]ommits (fuzzy)' })
-keymap.set('n', '<leader>fgf', '<cmd>:Telescope git_files<cr>', { desc = '[F]iles (fuzzy)' })
-keymap.set('n', '<leader>fgb', '<cmd>:Telescope git_branches<cr>', { desc = '[B]ranches (fuzzy)' })
-keymap.set('n', '<leader>fgs', '<cmd>:Telescope git_status<cr>', { desc = '[S]tatus (fuzzy)' })
-keymap.set('n', '<leader>fgst', '<cmd>:Telescope git_stash<cr>', { desc = '[St]ash (fuzzy)' })
+keymap.set('n', '<leader>fgc', '<cmd>:Telescope git_commits<cr>', { desc = 'Commits (fuzzy)' })
+keymap.set('n', '<leader>fgf', '<cmd>:Telescope git_files<cr>', { desc = 'Files (fuzzy)' })
+keymap.set('n', '<leader>fgb', '<cmd>:Telescope git_branches<cr>', { desc = 'Branches (fuzzy)' })
+keymap.set('n', '<leader>fgs', '<cmd>:Telescope git_status<cr>', { desc = 'Status (fuzzy)' })
+keymap.set('n', '<leader>fgst', '<cmd>:Telescope git_stash<cr>', { desc = 'Stash (fuzzy)' })
 
 keymap.set('n', '<leader>/', function()
   builtin.current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
@@ -79,16 +79,16 @@ end, { desc = 'Fuzzily search in current buffer' })
 -- LSP:
 local buf = vim.lsp.buf
 
-keymap.set('n', '<leader>lrf', buf.format, { desc = '[F]ormat buffer' })
-keymap.set('n', '<leader>lrr', buf.rename, { desc = '[R]ename reference' })
-keymap.set('n', '<leader>lrc', buf.code_action, { desc = '[C]ode Actions' })
-keymap.set('n', '<leader>lrs', [[:%s/\s\+$//e<cr>]], { desc = '[S]trip trailing whitespaces' })
+keymap.set('n', '<leader>lrf', buf.format, { desc = 'Format buffer' })
+keymap.set('n', '<leader>lrr', buf.rename, { desc = 'Rename reference' })
+keymap.set('n', '<leader>lrc', buf.code_action, { desc = 'Code Actions' })
+keymap.set('n', '<leader>lrs', [[:%s/\s\+$//e<cr>]], { desc = 'Strip trailing whitespaces' })
 
-keymap.set('n', '<leader>lgd', buf.definition, { desc = 'Goto [D]efinition' })
-keymap.set('n', '<leader>lgi', buf.implementation, { desc = 'Goto [I]mplementation' })
+keymap.set('n', '<leader>lgd', buf.definition, { desc = 'Goto Definition' })
+keymap.set('n', '<leader>lgi', buf.implementation, { desc = 'Goto Implementation' })
 
-keymap.set('n', '<leader>llc', buf.incoming_calls, { desc = 'List Incoming [C]alls' })
-keymap.set('n', '<leader>llr', buf.references, { desc = 'List [R]eferences' })
+keymap.set('n', '<leader>llc', buf.incoming_calls, { desc = 'List Incoming Calls' })
+keymap.set('n', '<leader>llr', buf.references, { desc = 'List References' })
 
 keymap.set('n', '<leader>lk', buf.hover, { desc = 'Hover Documentation' })
 
@@ -99,13 +99,6 @@ keymap.set('n', '<leader>gd', '<cmd>:Git diff<cr>', { desc = "Git Diff" })
 keymap.set('n', '<leader>ga', '<cmd>:Gwrite<cr>', { desc = "Git Add" })
 keymap.set('n', '<leader>gr', '<cmd>:Gread<cr>', { desc = "Git Reset" })
 keymap.set('n', '<leader>gc', '<cmd>:Git commit<cr>', { desc = "Git Commit" })
-
--- Gitsigns
-keymap.set('n', '<leader>gshn', '<cmd>:Gitsigns next_hunk<cr>', { desc = 'Git(signs) Next Hunk' })
-keymap.set('n', '<leader>gshp', '<cmd>:Gitsigns prev_hunk<cr>', { desc = 'Git(signs) Previous Hunk' })
-keymap.set('n', '<leader>gshv', '<cmd>:Gitsigns preview_hunk_inline<cr>', { desc = 'Git(signs) Preview Hunk' })
-keymap.set('n', '<leader>gshs', '<cmd>:Gitsigns stage_hunk<cr>', { desc = 'Git(signs) Stage Hunk' })
-keymap.set('n', '<leader>gshus', '<cmd>:Gitsigns undo_stage_hunk<cr>', { desc = 'Git(signs) Undo Stage Hunk' })
 
 -- Conjure
 
