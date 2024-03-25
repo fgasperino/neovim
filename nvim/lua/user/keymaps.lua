@@ -92,13 +92,8 @@ keymap.set('n', '<leader>llr', buf.references, { desc = 'List References' })
 
 keymap.set('n', '<leader>lk', buf.hover, { desc = 'Hover Documentation' })
 
--- Fugitive-
-keymap.set('n', '<leader>g', '<cmd>:Git<cr>', { desc = 'Git Summary' })
-keymap.set('n', '<leader>gl', '<cmd>:Git log<cr>', { desc = "Git Log" })
-keymap.set('n', '<leader>gd', '<cmd>:Git diff<cr>', { desc = "Git Diff" })
-keymap.set('n', '<leader>ga', '<cmd>:Gwrite<cr>', { desc = "Git Add" })
-keymap.set('n', '<leader>gr', '<cmd>:Gread<cr>', { desc = "Git Reset" })
-keymap.set('n', '<leader>gc', '<cmd>:Git commit<cr>', { desc = "Git Commit" })
+-- Neogit
+
 
 -- Conjure
 

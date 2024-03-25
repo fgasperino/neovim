@@ -58,12 +58,15 @@ return {
 
 	{
 		--
-		'tpope/vim-fugitive',
-
-		tag = 'v3.7',
+		'NeogitOrg/neogit',
 
 		dependencies = {
-			'lewis6991/gitsigns.nvim'
-		}
+			'lewis6991/gitsigns.nvim',
+			'nvim-lua/plenary.nvim',
+			'sindrets/diffview.nvim',
+			'nvim-telescope/telescope.nvim'
+		},
+
+		config = true
 	}
 }
