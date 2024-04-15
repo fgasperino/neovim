@@ -12,7 +12,7 @@ vim.g.maplocalleader = ' '
 
 --
 -- Lazy Package Manager
--- 
+--
 
 local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
 if not vim.loop.fs_stat(lazypath) then
@@ -45,8 +45,13 @@ require('user.options')
 require ('user.keymaps')
 
 --
--- Misc
--- 
+-- misc
+--
 
 require ('user.misc')
 
+--
+-- autocmds
+--
+
+require ('user.autocmds')
