@@ -26,7 +26,6 @@ keymap.set('n', 'N', 'Nzzzv', { desc = 'Prev search result' })
 -- Additional yank for global / system clipboard
 keymap.set({ 'n', 'v' }, '<leader>y', '\'+y', { desc = 'Yank to system clipboard' })
 keymap.set({ 'n', 'v' }, '<leader>p', '\'+p', { desc = 'Paste to system clipboard' })
-keymap.set('v', '<leader>p', '\'+p', { desc = 'Paste to system clipboard' })
 
 -- Keep copy buffer by sending paste buffer to diff register.
 keymap.set('x', '<leader>p', '\'_dP')
