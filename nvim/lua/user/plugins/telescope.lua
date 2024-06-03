@@ -7,15 +7,15 @@ return
         tag = '0.1.5',
 
         dependencies = {
-                'nvim-lua/plenary.nvim',
-                'folke/which-key.nvim',
-                {
-                    'nvim-telescope/telescope-fzf-native.nvim',
-                    build = 'make',
-                    cond = function()
-                        return vim.fn.executable 'make' == 1
-                    end
-                }
+            'nvim-lua/plenary.nvim',
+            'folke/which-key.nvim',
+            {
+                'nvim-telescope/telescope-fzf-native.nvim',
+                build = 'make',
+                cond = function()
+                    return vim.fn.executable 'make' == 1
+                end
+            }
         },
 
         config = function()
@@ -54,16 +54,20 @@ return
         opts = {
             extensions = {
                 undo = {
-                    use_delta = true,
-                    use_custom_command = nil, -- setting this implies `use_delta = false`. Accepted format is: { "bash", "-c", "echo '$DIFF' | delta" }
-                    side_by_side = false,
-                    diff_context_lines = vim.o.scrolloff,
-                    entry_format = "state #$ID, $STAT, $TIME",
-                    time_format = "",
-                    saved_only = false,
+                    diff_context_lines = 10,
+                    side_by_side = true,
+                    layout_strategy = "vertical",
+                    layout_config = {
+                        preview_height = 0.8
+                    },
                 },
             },
         },
+
+        config = function(_, opts)
+            require("telescope").setup(opts)
+            require("telescope").load_extension("undo")
+        end,
     },
 
     {

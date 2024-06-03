@@ -93,14 +93,14 @@ return {
 			local rule = require('nvim-autopairs.rule')
 			local cond = require('nvim-autopairs.conds')
 
-			--npairs.add_rules({
+			npairs.add_rules({
 				-- Clojure filetypes always will pair.
-			--	rule('$', '$', {'clojure'})
-				  --:with_pair(cond.none())
-				  --:with_move(cond.none())
-				  --:with_del(cond.none())
-				  --:with_cr(cond.none())
-			--})
+				rule('$', '$', { 'clojure' })
+					:with_pair(cond.none())
+					:with_move(cond.none())
+					:with_del(cond.none())
+					:with_cr(cond.none())
+			})
 
 			-- single quote is a macro.
 			npairs.remove_rule('\'')
