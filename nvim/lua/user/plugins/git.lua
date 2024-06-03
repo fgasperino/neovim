@@ -67,6 +67,8 @@ return {
 			'nvim-telescope/telescope.nvim'
 		},
 
+		tag = "v0.0.1",
+
 		config = true
 	}
 }
