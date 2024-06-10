@@ -3,7 +3,7 @@ return {
 		--
 		'lewis6991/gitsigns.nvim',
 
-		tag = 'v0.7',
+		tag = 'v0.8.1',
 
 		config = function()
 			require('gitsigns').setup({
@@ -60,14 +60,14 @@ return {
 		--
 		'NeogitOrg/neogit',
 
+		tag = 'v1.0.0',
+
 		dependencies = {
 			'lewis6991/gitsigns.nvim',
 			'nvim-lua/plenary.nvim',
 			'sindrets/diffview.nvim',
 			'nvim-telescope/telescope.nvim'
 		},
-
-		tag = "v0.0.1",
 
 		config = true
 	}

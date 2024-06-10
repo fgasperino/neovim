@@ -23,7 +23,7 @@ return {
 		-- https://github.com/Olical/conjure
 		'Olical/conjure',
 
-		tag = 'v4.50.0',
+		tag = 'v4.51.0',
 
 		dependencies = {
 			'PaterJason/cmp-conjure',
@@ -38,7 +38,9 @@ return {
 			vim.api.nvim_create_autocmd("BufNewFile", {
 				group = vim.api.nvim_create_augroup("conjure_log_disable_lsp", { clear = true }),
 				pattern = { "conjure-log-*" },
-				callback = function() vim.diagnostic.disable(0) end,
+				callback = function()
+					vim.diagnostic.enable(false)
+				end,
 				desc = "Conjure Log disable LSP diagnostics",
 			})
 		end
@@ -47,6 +49,8 @@ return {
 	{
 		-- https://github.com/julienvincent/nvim-paredit
 		'julienvincent/nvim-paredit',
+
+		tag = 'v0.11.0',
 
 		config = function()
 			local paredit = require('nvim-paredit')
