@@ -23,7 +23,7 @@ return {
 		-- https://github.com/Olical/conjure
 		'Olical/conjure',
 
-		tag = 'v4.51.0',
+		tag = 'v4.52.1',
 
 		dependencies = {
 			'PaterJason/cmp-conjure',
@@ -35,14 +35,14 @@ return {
 			require('conjure.mapping')['on-filetype']()
 
 			-- Disable LSP diagnostics in the conjure log buffer(s).
-			vim.api.nvim_create_autocmd("BufNewFile", {
-				group = vim.api.nvim_create_augroup("conjure_log_disable_lsp", { clear = true }),
-				pattern = { "conjure-log-*" },
-				callback = function()
-					vim.diagnostic.enable(false)
-				end,
-				desc = "Conjure Log disable LSP diagnostics",
-			})
+			-- vim.api.nvim_create_autocmd("BufNewFile", {
+			-- 	group = vim.api.nvim_create_augroup("conjure_log_disable_lsp", { clear = true }),
+			-- 	pattern = { "conjure-log-*" },
+			-- 	callback = function()
+			-- 		vim.diagnostic.enable(false)
+			-- 	end,
+			-- 	desc = "Conjure Log disable LSP diagnostics",
+			-- })
 		end
 	},
 
