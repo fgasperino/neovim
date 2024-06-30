@@ -36,6 +36,7 @@ keymap.set('o', 'kj', '<Esc>', { desc = 'Exit operator-pending mode' })
 
 -- Buffers --
 keymap.set('n', '<s-j>', ':bnext<cr>', { desc = 'Change to next open buffer' })
+keymap.set('n', '<s-h>', ':bprev<cr>', { desc = 'Change to prev open buffer' })
 keymap.set('n', '<leader>bd', ':<c-u>bprevious <bar> bdelete #<cr>', { desc = 'Delete current buffer (preserve window)' })
 
 -- Window panes --
