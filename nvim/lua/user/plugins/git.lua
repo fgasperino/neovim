@@ -50,7 +50,7 @@ return {
 					map('n', '<leader>gb', gs.toggle_current_line_blame, { desc = 'Toggle blame line' })
 
 					-- Text object
-					map({ 'o', 'x' }, 'ih', ':<C-U>Gitsigns select_hunk<CR>')
+					map('v', 'ih', ':<C-U>Gitsigns select_hunk<CR>')
 				end
 			})
 		end

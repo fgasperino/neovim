@@ -94,7 +94,7 @@ keymap.set('n', '<leader>llr', buf.references, { desc = 'List References' })
 keymap.set('n', '<leader>lk', buf.hover, { desc = 'Hover Documentation' })
 
 -- Neogit
-
+keymap.set('n', '<leader>ng', ':Neogit kind=vsplit<cr>', { desc = 'NeoGit (open)'})
 
 -- Conjure
 
