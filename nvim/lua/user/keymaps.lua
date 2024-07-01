@@ -50,8 +50,8 @@ keymap.set('n', '<Down>', ':resize -1<cr>', { desc = 'Resize pane (horiz, shrink
 --
 
 -- Nvim-Tree
-keymap.set('n', '<leader>tt', '<cmd>NvimTreeToggle<cr>', { desc = 'Toggle file tree.' })
-keymap.set('n', '<leader>ta', '<cmd>NvimTreeFindFileToggle<cr>', { desc = 'Toggle file tree at current buffer locataion.'})
+keymap.set('n', '<leader>ntt', '<cmd>NvimTreeToggle<cr>', { desc = 'Toggle file tree.' })
+keymap.set('n', '<leader>nta', '<cmd>NvimTreeFindFileToggle<cr>', { desc = 'Toggle file tree at current buffer locataion.'})
 
 -- Telescope
 local builtin = require('telescope.builtin')
