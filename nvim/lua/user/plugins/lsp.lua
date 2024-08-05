@@ -1,5 +1,5 @@
 local function get_servers()
-    return { 'lua_ls', 'clojure_lsp' }
+    return { 'lua_ls', 'clojure_lsp', 'clj_kondo' }
 end
 
 return {
@@ -26,7 +26,7 @@ return {
 
         config = function()
             require('mason-lspconfig').setup({
-                ensure_installed = { 'lua_ls', 'clojure_lsp' },
+                ensure_installed = get_servers(),
                 auto_install = true
             })
         end,
@@ -47,19 +47,18 @@ return {
         config = function()
             local lspconfig = require('lspconfig')
             local capabilities = require('cmp_nvim_lsp').default_capabilities()
-
-            --local servers = { 'lua_ls', 'clojure_lsp' }
             local servers = get_servers()
 
             for _, lsp in ipairs(servers) do
                 lspconfig[lsp].setup({
-                    capabilities = capabilities
+                    capabilities = capabilities,
+                    init_options = {
+                        preferences = {
+                            disableSuggestions = true
+                        }
+                    }
                 })
             end
-
-            --            lspconfig.lua_ls.setup({
-            --                capabilities = capabilities
-            --            })
         end
     },
 

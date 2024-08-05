@@ -97,4 +97,4 @@ keymap.set('n', '<leader>lk', buf.hover, { desc = 'Hover Documentation' })
 keymap.set('n', '<leader>ng', ':Neogit kind=vsplit<cr>', { desc = 'NeoGit (open)'})
 
 -- Conjure
-
+-- keymap.set('n', '<leader>ez', ":ConjureEval (do (require '[clj-reload.core]) (clj-reload.core/reload))<cr>", {desc = 'Conjure - Reload all namespaces'})

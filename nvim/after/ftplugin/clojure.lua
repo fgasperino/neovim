@@ -17,5 +17,3 @@ vim.api.nvim_create_autocmd('BufWritePre', {
   group = vim.api.nvim_create_augroup('RemoveTrailingWhitespace', { clear = true}),
   command = [[:%s/\s\+$//e]]
 })
-
-vim.keymap.set('n', '<leader><leader>', ":echo HELLO!", {})
