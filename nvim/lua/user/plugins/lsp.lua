@@ -1,5 +1,5 @@
 local function get_servers()
-    return { 'lua_ls', 'clojure_lsp', 'clj_kondo' }
+    return { 'lua_ls', 'clojure_lsp'}
 end
 
 return {
