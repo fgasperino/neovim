@@ -23,11 +23,18 @@ return {
 		-- https://github.com/Olical/conjure
 		'Olical/conjure',
 
-		tag = 'v4.52.1',
+		tag = 'v4.52.2',
+		lazy = true,
+		ft = {'clojure'},
 
 		dependencies = {
 			'PaterJason/cmp-conjure',
 		},
+
+		init = function()
+			vim.g["conjure#client#clojure#nrepl#tap#queue_size"] = 50
+			vim.g["conjure#client#clojure#nrepl#refresh#backend"] = 'clj-reload'
+		end,
 
 		config = function()
 			require('conjure.main').main()
