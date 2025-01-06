@@ -60,7 +60,7 @@ return {
 		--
 		'NeogitOrg/neogit',
 
-		tag = 'v1.0.0',
+		tag = 'v2.0.0',
 
 		dependencies = {
 			'lewis6991/gitsigns.nvim',
