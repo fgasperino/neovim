@@ -32,23 +32,29 @@ require('lazy').setup({
   { import = 'user.plugins' },
 }, {})
 
+-- 
+-- globals
+--
+
+require('user.globals')
+
 --
 -- options
 --
 
 require('user.options')
 
+-- 
+-- window-options
+--
+
+require('user.window-options')
+
 --
 -- keymaps
 --
 
 require ('user.keymaps')
-
---
--- misc
---
-
-require ('user.misc')
 
 --
 -- autocmds

@@ -1,16 +1,23 @@
 return {
     -- https://github.com/folke/which-key.nvim
-    'folke/which-key.nvim',
+    "folke/which-key.nvim",
 
-    tag = 'v1.6.0',
-    event = 'VeryLazy',
-    
-    init = function()
-        vim.o.timeout = true
-        vim.o.timeoutlen = 300
-    end,
+    tag = "v3.15.0",
+    event = "VeryLazy",
 
-    config = function()
-        require('which-key').setup({})
-    end
+    opts = {
+        -- your configuration comes here
+        -- or leave it empty to use the default settings
+        -- refer to the configuration section below
+    },
+
+    keys = {
+        {
+            "<leader>?",
+            function()
+                require("which-key").show({ global = false })
+            end,
+            desc = "Buffer Local Keymaps (which-key)",
+        },
+    },
 }

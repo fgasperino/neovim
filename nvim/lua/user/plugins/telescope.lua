@@ -1,85 +1,50 @@
-return
-{
-    {
-        -- https://github.com/nvim-telescope/telescope.nvim
-        'nvim-telescope/telescope.nvim',
+return {
+    -- https://github.com/nvim-telescope/telescope.nvim
+    'nvim-telescope/telescope.nvim',
 
-        tag = '0.1.5',
+    tag = '0.1.8',
 
-        dependencies = {
-            'nvim-lua/plenary.nvim',
-            'folke/which-key.nvim',
-            {
-                'nvim-telescope/telescope-fzf-native.nvim',
-                build = 'make',
-                cond = function()
-                    return vim.fn.executable 'make' == 1
-                end
-            }
-        },
-
-        config = function()
-            local telescope = require('telescope')
-
-            telescope.setup({
-                extensions = {
-                    fzf = {
-                        fuzzy = true,
-                        override_generic_sorter = true,
-                        override_file_sorter = true,
-                        case_mode = 'smart_case'
-                    }
-                }
-            })
-
-            telescope.load_extension('fzf')
-        end
+    dependencies = {
+        'nvim-lua/plenary.nvim',
+        'folke/which-key.nvim',
+        {
+            'nvim-telescope/telescope-fzf-native.nvim',
+            build = 'make',
+            cond = function()
+                return vim.fn.executable 'make' == 1
+            end
+        }
     },
 
-    {
-        -- https://github.com/debugloop/telescope-undo.nvim
-        "debugloop/telescope-undo.nvim",
+    config = function()
+        local t = require('telescope')
+        local tb = require('telescope.builtin')
 
-        dependencies = {
-            "nvim-telescope/telescope.nvim",
-        },
-        keys = {
-            {
-                "<leader>u",
-                "<cmd>Telescope undo<cr>",
-                desc = "[U]ndo History",
-            },
-        },
-
-        opts = {
+        t.setup({
             extensions = {
-                undo = {
-                    diff_context_lines = 10,
-                    side_by_side = true,
-                    layout_strategy = "vertical",
-                    layout_config = {
-                        preview_height = 0.8
-                    },
-                },
-            },
-        },
+                fzf = {
+                    fuzzy = true,
+                    override_generic_sorter = true,
+                    override_file_sorter = true,
+                    case_mode = 'smart_case'
+                }
+            }
+        })
 
-        config = function(_, opts)
-            require("telescope").setup(opts)
-            require("telescope").load_extension("undo")
-        end,
-    },
+        t.load_extension('fzf')
 
-    {
-        -- https://github.com/Slotos/telescope-lsp-handlers.nvim
-        "Slotos/telescope-lsp-handlers.nvim",
+        local km = vim.keymap
 
-        dependencies = {
-            "nvim-telescope/telescope.nvim",
-        },
+        km.set('n', '<leader>ff', tb.find_files, { desc = 'Find Files (Telescope)'})
+        km.set('n', '<leader>fr', tb.oldfiles, { desc = 'Find Recent Files (Telescope)'})
+        km.set('n', '<leader>fb', tb.buffers, { desc = 'Find Buffers (Telescope)'})
+        km.set('n', '<leader>fg', tb.live_grep, { desc = 'Find - Grep (Telescope)'})
 
-        config = function()
-            require('telescope-lsp-handlers').setup({})
-        end
-    }
+        km.set('n', '<leader>/', function()
+            tb.current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
+                winblend = 10,
+                previewer = false,
+            })
+        end, { desc = 'Find in Buffer (Telescope)' })
+    end
 }
