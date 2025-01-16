@@ -2,8 +2,6 @@ return {
     -- https://github.com/christoomey/vim-tmux-navigator
     'christoomey/vim-tmux-navigator',
 
-    tag = 'v1.0',
-
     cmd = {
         'TmuxNavigateLeft',
         'TmuxNavigateDown',
