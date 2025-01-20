@@ -1,4 +1,5 @@
 return {
+    {
     -- https://github.com/hrsh7th/nvim-cmp 
     'hrsh7th/nvim-cmp',
 
@@ -17,7 +18,7 @@ return {
         local engines = require('user.functions').completion_engines()
         local completions = {}
 
-        for e in pairs(engines) do
+        for _, e in pairs(engines) do
             table.insert(completions, {name = e})
         end
 
@@ -39,8 +40,8 @@ return {
                 end,
                 ["<CR>"] = cmp.mapping.confirm({ select = true })
             },
-
             sources = cmp.config.sources(completions)
         })
     end
+    }
 }
