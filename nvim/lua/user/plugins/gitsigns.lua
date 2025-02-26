@@ -3,7 +3,7 @@ return {
     -- https://github.com/lewis6991/gitsigns.nvim 
     'lewis6991/gitsigns.nvim',
 
-    tag = 'v0.9.0',
+    tag = 'v1.0.0',
 
     config = function()
         require('gitsigns').setup({
@@ -24,28 +24,9 @@ return {
                     vim.keymap.set(mode, l, r, opts)
                 end
 
-                -- Navigation
-                km('n', '<C-]>', function()
-                    if vim.wo.diff then
-                        return '<leader>gnh'
-                    end
-
-                    vim.schedule(function() gs.next_hunk() end)
-
-                    return '<Ignore>'
-                end, { expr = true, desc = 'Go To Next Hunk (Git Signs)' })
-
-                km('n', '<C-[>', function()
-                    if vim.wo.diff then
-                        return '<leader>gph'
-                    end
-
-                    vim.schedule(function() gs.prev_hunk() end)
-
-                    return '<Ignore>'
-                end, { expr = true, desc = 'Go To Prev Hunk (Git Signs)' })
-
                 -- Actions
+                km('n', '<leader>gnh', gs.next_hunk, { desc = 'Next Hunk (Git Signs)' })
+                km('n', '<leader>gph', gs.prev_hunk, { desc = 'Prev Hunk (Git Signs)' })
                 km('n', '<leader>gsh', gs.stage_hunk, { desc = 'Stage Hunk (Git Signs)' })
                 km('n', '<leader>grh', gs.reset_hunk, { desc = 'Reset Hunk (Git Signs)' })
                 km('n', '<leader>gsb', gs.stage_buffer, { desc = 'Stage Buffer (Git Signs)' })
