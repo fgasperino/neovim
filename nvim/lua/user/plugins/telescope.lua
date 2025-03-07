@@ -38,8 +38,9 @@ return {
         km.set('n', '<leader>ff', tb.find_files, { desc = 'Find Files (Telescope)'})
         km.set('n', '<leader>fr', tb.oldfiles, { desc = 'Find Recent Files (Telescope)'})
         km.set('n', '<leader>fb', tb.buffers, { desc = 'Find Buffers (Telescope)'})
+        km.set('n', '<leader>fh', tb.help_tags, { desc = 'Find Help (Telescope)'})
         km.set('n', '<leader>fgs', tb.grep_string, { desc = 'Find - Grep String (Telescope)'})
-        km.set('n', '<leader>fgl', tb.live_grep, { desc = 'Find - Grep Live (Telescope)'})
+        --km.set('n', '<leader>fgl', tb.live_grep, { desc = 'Find - Grep Live (Telescope)'})
 
         km.set('n', '<leader>fgc', '<cmd>:Telescope git_commits<cr>', { desc = 'Commits (fuzzy)' })
         km.set('n', '<leader>fgf', '<cmd>:Telescope git_files<cr>', { desc = 'Files (fuzzy)' })
@@ -52,5 +53,8 @@ return {
                 previewer = false,
             })
         end, { desc = 'Find in Buffer (Telescope)' })
+
+        require("user.functions.telescope").setup()
+
     end
 }
