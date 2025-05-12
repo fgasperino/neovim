@@ -39,13 +39,15 @@ return {
         km.set('n', '<leader>fr', tb.oldfiles, { desc = 'Find Recent Files (Telescope)'})
         km.set('n', '<leader>fb', tb.buffers, { desc = 'Find Buffers (Telescope)'})
         km.set('n', '<leader>fh', tb.help_tags, { desc = 'Find Help (Telescope)'})
-        km.set('n', '<leader>fgs', tb.grep_string, { desc = 'Find - Grep String (Telescope)'})
-        --km.set('n', '<leader>fgl', tb.live_grep, { desc = 'Find - Grep Live (Telescope)'})
+        km.set('n', '<leader>fs', tb.grep_string, { desc = 'Find - Grep String (Telescope)'})
 
         km.set('n', '<leader>fgc', '<cmd>:Telescope git_commits<cr>', { desc = 'Commits (fuzzy)' })
         km.set('n', '<leader>fgf', '<cmd>:Telescope git_files<cr>', { desc = 'Files (fuzzy)' })
         km.set('n', '<leader>fgb', '<cmd>:Telescope git_branches<cr>', { desc = 'Branches (fuzzy)' })
         km.set('n', '<leader>fgs', '<cmd>:Telescope git_status<cr>', { desc = 'Status (fuzzy)' })
+
+        km.set('n', '<leader>llr', '<cmd>:Telescope lsp_references<cr>', { desc = 'LSP List References (Telescope)' })
+        km.set('n', '<leader>lds', '<cmd>:Telescope lsp_document_symbols<cr>', { desc = 'LSP Document Symbols (Telescope)' })
 
         km.set('n', '<leader>/', function()
             tb.current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {

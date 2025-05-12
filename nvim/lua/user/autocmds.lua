@@ -20,3 +20,12 @@ vim.api.nvim_create_autocmd('LspAttach', {
         end
     end,
 })
+
+-- Relative line numbers. Often these get lost..
+vim.api.nvim_create_autocmd('BufAdd', {
+    callback = function(ev)
+        vim.opt.nu = true
+        vim.opt.relativenumber = true
+    end
+})
+

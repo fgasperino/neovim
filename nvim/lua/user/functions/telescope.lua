@@ -1,5 +1,3 @@
-
-
 local live_grep_glob = function(opts)
     local pickers = require "telescope.pickers"
     local finders = require "telescope.finders"
@@ -55,7 +53,7 @@ end
 local M = {}
 
 M.setup = function()
-    vim.keymap.set('n', '<leader>fgl', live_grep_glob, { desc = 'Find - Grep Live (*glob*) (Telescope Extension)'})
+    vim.keymap.set('n', '<leader>fg', live_grep_glob, { desc = 'Find - Grep Live (*glob*) (Telescope Extension)'})
 end
 
 return M

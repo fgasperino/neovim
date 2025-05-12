@@ -60,8 +60,5 @@ km.set('n', '<leader>lrs', [[:%s/\s\+$//e<cr>]], { desc = 'Strip trailing whites
 km.set('n', '<leader>lgd', buf.definition, { desc = 'Goto Definition' })
 km.set('n', '<leader>lgi', buf.implementation, { desc = 'Goto Implementation' })
 
-km.set('n', '<leader>llc', buf.incoming_calls, { desc = 'List Incoming Calls' })
-km.set('n', '<leader>llr', buf.references, { desc = 'List References' })
-
 km.set('n', '<leader>lk', buf.hover, { desc = 'Hover Documentation' })
 
