@@ -24,7 +24,7 @@ return {
         -- https://github.com/Olical/conjure
         'Olical/conjure',
 
-        tag = 'v4.53.0',
+        tag = 'v4.55.0',
         lazy = true,
         ft = {'clojure'},
 
@@ -35,6 +35,8 @@ return {
         init = function()
             vim.g["conjure#client#clojure#nrepl#tap#queue_size"] = 50
             vim.g["conjure#client#clojure#nrepl#refresh#backend"] = 'clj-reload'
+            vim.g["conjure#client#clojure#nrepl#connection#auto_repl#enabled"] = false
+            vim.g["conjure#filetypes"] = {"clojure", "clojurescript"}
         end,
 
         config = function()
@@ -50,6 +52,8 @@ return {
                 end,
                 desc = "Conjure Log disable LSP diagnostics",
             })
+
+            require("user.functions.conjure").setup()
         end
     }
 }
