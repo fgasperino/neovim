@@ -1,4 +1,3 @@
-
 local function find_shadow_builds(opts)
 
     local pickers = require("telescope.pickers")
@@ -53,6 +52,7 @@ end
 local M = {}
 
 M.setup = function()
+    vim.keymap.set('n', '<leader>cvt', ":ConjureEval (do (require '[user]) (user/view-tap-queue!))<cr>", { desc = 'View conjure tap queue'})
     vim.keymap.set('n', '<leader>cssb', find_shadow_builds, { desc = 'Connect to clojurescript build (shadow-cljs)'})
     vim.keymap.set('n', '<leader>crn', "", { desc = 'Refresh all namespaces (Clojure)'})
 end

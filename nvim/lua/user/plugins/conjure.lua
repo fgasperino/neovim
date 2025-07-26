@@ -42,6 +42,7 @@ return {
         config = function()
             require('conjure.main').main()
             require('conjure.mapping')['on-filetype']()
+            local functions = require("user.functions.conjure")
 
             -- Disable LSP diagnostics in the conjure log buffer(s).
             vim.api.nvim_create_autocmd("BufNewFile", {
@@ -53,7 +54,8 @@ return {
                 desc = "Conjure Log disable LSP diagnostics",
             })
 
-            require("user.functions.conjure").setup()
+            -- Load custom functions for conjure
+            functions.setup()
         end
     }
 }
