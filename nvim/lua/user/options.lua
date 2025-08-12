@@ -1,4 +1,4 @@
--- 
+--
 -- options.lua
 --
 
@@ -26,7 +26,7 @@ o.ignorecase = true
 o.smartcase = true
 
 -- Decrease update time
-o.updatetime = 5000
+o.updatetime = 1000
 o.timeoutlen = 500
 
 -- Set completeopt to have a better completion experience
@@ -59,4 +59,3 @@ o.hlsearch = false
 o.incsearch = true
 
 o.scrolloff = 999
-

@@ -11,16 +11,6 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   end,
 })
 
--- LSP attach to buffers 
-vim.api.nvim_create_autocmd('LspAttach', {
-    callback = function(ev)
-        local client = vim.lsp.get_client_by_id(ev.data.client_id)
-        if client:supports_method('textDocument/completion') then
-            vim.lsp.completion.enable(true, client.id, ev.buf, { autotrigger = true})
-        end
-    end,
-})
-
 -- Relative line numbers. Often these get lost..
 vim.api.nvim_create_autocmd('BufAdd', {
     callback = function(ev)
@@ -29,3 +19,14 @@ vim.api.nvim_create_autocmd('BufAdd', {
     end
 })
 
+-- Absolute line numbers in Diffview buffers.
+vim.api.nvim_create_autocmd({ "BufNew", "BufAdd", "BufEnter" }, {
+  group = vim.api.nvim_create_augroup("DiffviewLineNumberFix", { clear = true }),
+  callback = function()
+    -- Check if it's a diff buffer AND has 'nowrite' buftype
+    if vim.opt_local.diff:get() and vim.opt_local.buftype:get() == "nowrite" then
+      vim.opt_local.number = true
+      vim.opt_local.relativenumber = false
+    end
+  end,
+})

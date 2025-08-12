@@ -3,6 +3,7 @@
 --
 
 local km = vim.keymap
+local cmd = vim.cmd
 
 -- kms for better default experience
 km.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
@@ -12,8 +13,8 @@ km.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
 km.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 
 -- Join lines, trimming whitespace.
-km.set('n', '<M-j>', vim.cmd.join, { desc = 'Join lines, trim whitespace' })
-km.set('i', '<M-j>', vim.cmd.join, { desc = 'Join lines, trim whitespace' })
+km.set('n', '<M-j>', cmd.join, { desc = 'Join lines, trim whitespace' })
+km.set('i', '<M-j>', cmd.join, { desc = 'Join lines, trim whitespace' })
 
 -- Keep cursor centered on scroll up/down
 km.set('n', '<C-d>', '<C-d>zz', { desc = 'Scroll Down' })
@@ -44,21 +45,3 @@ km.set('n', '<Left>', ':vertical resize +1<cr>', { desc = 'Resize pane (vert, gr
 km.set('n', '<Right>', ':vertical resize -1<cr>', { desc = 'Resize pane (vert, shrink)' })
 km.set('n', '<Up>', ':resize +1<cr>', { desc = 'Resize pane (horiz, grow)' })
 km.set('n', '<Down>', ':resize -1<cr>', { desc = 'Resize pane (horiz, shrink)' })
-
---
--- PLUGINS
---
-
--- LSP:
-local buf = vim.lsp.buf
-
-km.set('n', '<leader>lrf', buf.format, { desc = 'Format buffer' })
-km.set('n', '<leader>lrr', buf.rename, { desc = 'Rename reference' })
-km.set('n', '<leader>lrc', buf.code_action, { desc = 'Code Actions' })
-km.set('n', '<leader>lrs', [[:%s/\s\+$//e<cr>]], { desc = 'Strip trailing whitespaces' })
-
-km.set('n', '<leader>lgd', buf.definition, { desc = 'Goto Definition' })
-km.set('n', '<leader>lgi', buf.implementation, { desc = 'Goto Implementation' })
-
-km.set('n', '<leader>lk', buf.hover, { desc = 'Hover Documentation' })
-
