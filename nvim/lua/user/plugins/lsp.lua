@@ -1,8 +1,8 @@
-return    {
+return {
     -- https://github.com/williamboman/mason.nvim
     'williamboman/mason.nvim',
 
-    tag = 'v1.10.0',
+    tag = 'v2.0.1',
 
     config = function()
         require('mason').setup({})

@@ -45,20 +45,3 @@ km.set('n', '<Right>', ':vertical resize -1<cr>', { desc = 'Resize pane (vert, s
 km.set('n', '<Up>', ':resize +1<cr>', { desc = 'Resize pane (horiz, grow)' })
 km.set('n', '<Down>', ':resize -1<cr>', { desc = 'Resize pane (horiz, shrink)' })
 
---
--- PLUGINS
---
-
--- LSP:
-local buf = vim.lsp.buf
-
-km.set('n', '<leader>lrf', buf.format, { desc = 'Format buffer' })
-km.set('n', '<leader>lrr', buf.rename, { desc = 'Rename reference' })
-km.set('n', '<leader>lrc', buf.code_action, { desc = 'Code Actions' })
-km.set('n', '<leader>lrs', [[:%s/\s\+$//e<cr>]], { desc = 'Strip trailing whitespaces' })
-
-km.set('n', '<leader>lgd', buf.definition, { desc = 'Goto Definition' })
-km.set('n', '<leader>lgi', buf.implementation, { desc = 'Goto Implementation' })
-
-km.set('n', '<leader>lk', buf.hover, { desc = 'Hover Documentation' })
-
