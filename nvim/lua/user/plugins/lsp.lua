@@ -1,6 +1,5 @@
 return {
-    -- https://github.com/williamboman/mason.nvim
-    'williamboman/mason.nvim',
+    'mason-org/mason.nvim',
 
     tag = 'v2.0.1',
 
