@@ -32,38 +32,7 @@ require('lazy').setup({
     { import = 'user.plugins' },
 }, {})
 
---
--- LSP
---
-
-require('user.lsp')
-
---
--- globals
---
-
 require('user.globals')
-
---
--- options
---
-
 require('user.options')
-
---
--- window-options
---
-
 require('user.window-options')
-
---
--- keymaps
---
-
-require('user.keymaps')
-
---
--- autocmds
---
-
-require('user.autocmds')
+require('user.lsp')
