@@ -28,6 +28,8 @@ end
 
 vim.opt.rtp:prepend(lazypath)
 
+require('user.pre-plugins')
+
 require('lazy').setup({
     { import = 'user.plugins' },
 }, {})
