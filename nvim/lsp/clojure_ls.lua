@@ -6,14 +6,18 @@ return {
         "clojure",
         "edn"
     },
-    root_markers = {
+
+    root_dir = vim.fs.dirname(vim.fs.find({
         'project.clj',
         'deps.edn',
         'build.boot',
         'shadow-cljs.edn',
-        '.git',
-        'bb.edn'
-    },
+        'bb.edn',
+        '.git', -- fallback for git-based projects
+    }, {
+        upward = true,
+        path = vim.api.nvim_buf_get_name(0),
+    })[1]) or vim.fn.getcwd(),
 
     settings = {
         clojure_lsp = {

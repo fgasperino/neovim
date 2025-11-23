@@ -1,6 +1,9 @@
 vim.lsp.enable({
     "lua_ls",
-    "clojure_ls"
+    "clojure_ls",
+    "html_ls",
+    "ts_ls",
+    "svelte_ls"
 })
 
 vim.diagnostic.config({
