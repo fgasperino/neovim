@@ -45,3 +45,15 @@ km.set('n', '<Left>', ':vertical resize +1<cr>', { desc = 'Resize pane (vert, gr
 km.set('n', '<Right>', ':vertical resize -1<cr>', { desc = 'Resize pane (vert, shrink)' })
 km.set('n', '<Up>', ':resize +1<cr>', { desc = 'Resize pane (horiz, grow)' })
 km.set('n', '<Down>', ':resize -1<cr>', { desc = 'Resize pane (horiz, shrink)' })
+
+km.set('n', '<C-f>', function()
+  local current_tab = vim.fn.tabpagenr()
+  local tab_count = vim.fn.tabpagenr('$')
+  local window_count = vim.fn.winnr('$')
+
+  if window_count == 1 and tab_count > 1 then
+    vim.cmd('tabclose')
+  else
+    vim.cmd('tab split')
+  end
+end, { desc = 'Toggle fullscreen window (zoom current buffer)' })
