@@ -1,1 +1,1 @@
-themes/everforest.lua
+themes/catppuccin.lua

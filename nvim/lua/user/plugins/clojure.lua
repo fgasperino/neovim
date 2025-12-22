@@ -57,7 +57,7 @@ return {
         -- https://github.com/Olical/conjure
         'Olical/conjure',
 
-        tag = 'v4.55.0',
+        tag = 'v4.57.0',
         lazy = true,
         ft = { 'clojure' },
 
