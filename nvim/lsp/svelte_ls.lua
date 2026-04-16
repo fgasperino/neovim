@@ -6,10 +6,7 @@ return {
 
     filetypes = { 'svelte' },
 
-    root_dir = vim.fs.dirname(vim.fs.find({ 'package.json', '.git' }, {
-        upward = true,
-        path = vim.api.nvim_buf_get_name(0),
-    })[1]) or vim.fn.getcwd(),
+    root_markers = { 'package.json', '.git' },
 
     settings = {
         svelte = {

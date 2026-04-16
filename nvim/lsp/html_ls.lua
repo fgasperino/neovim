@@ -11,14 +11,11 @@ return {
         'svelte',
     },
 
-    root_dir = vim.fs.dirname(vim.fs.find({
+    root_markers = {
         'package.json',
         '.git',
         'index.html', -- Fallback for static sites
-    }, {
-        upward = true,
-        path = vim.api.nvim_buf_get_name(0),
-    })[1]) or vim.fn.getcwd(),
+    },
 
     -- Enable linting (validation) and completions (including Emmet)
     settings = {

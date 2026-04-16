@@ -57,3 +57,12 @@ km.set('n', '<C-f>', function()
     vim.cmd('tab split')
   end
 end, { desc = 'Toggle fullscreen window (zoom current buffer)' })
+
+-- Undo Tree --
+if vim.fn.has('nvim-0.12') == 1 then
+  -- Load the built-in undotree plugin
+  vim.cmd('packadd nvim.undotree')
+  km.set('n', '<leader>u', require('undotree').open, { desc = 'Toggle Undo Tree (Native)' })
+else
+  vim.notify("Native Undo Tree requires Neovim 0.12+", vim.log.levels.WARN)
+end

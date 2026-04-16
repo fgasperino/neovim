@@ -7,7 +7,7 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   pattern = { '*' },
   group = vim.api.nvim_create_augroup('YankHighlight', { clear = true }),
   callback = function()
-    vim.highlight.on_yank()
+    vim.hl.on_yank()
   end,
 })
 
@@ -29,4 +29,15 @@ vim.api.nvim_create_autocmd({ "BufNew", "BufAdd", "BufEnter" }, {
       vim.opt_local.relativenumber = false
     end
   end,
+})
+
+-- Treesitter folding for Clojure
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = "clojure",
+    callback = function()
+        vim.opt_local.foldmethod = 'expr'
+        vim.opt_local.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
+        -- Start with all folds open
+        vim.opt_local.foldenable = false
+    end
 })

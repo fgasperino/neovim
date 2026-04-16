@@ -12,15 +12,12 @@ return {
         'svelte',
     },
 
-    root_dir = vim.fs.dirname(vim.fs.find({
+    root_markers = {
         'package.json',
         'jsconfig.json',
         'tsconfig.json',
         '.git',
-    }, {
-        upward = true,
-        path = vim.api.nvim_buf_get_name(0),
-    })[1]) or vim.fn.getcwd(),
+    },
 
     -- Optional but extremely useful for Svelte 5 projects
     init_options = {

@@ -3,7 +3,7 @@ return {
         -- https://github.com/NeogitOrg/neogit
         'NeogitOrg/neogit',
 
-        tag = 'v2.0.0',
+        tag = 'v3.0.0',
 
         dependencies = {
             'nvim-lua/plenary.nvim',
@@ -28,7 +28,7 @@ return {
         -- https://github.com/lewis6991/gitsigns.nvim
         'lewis6991/gitsigns.nvim',
 
-        tag = 'v1.0.0',
+        tag = 'v2.1.0',
 
         config = function()
             require('gitsigns').setup({

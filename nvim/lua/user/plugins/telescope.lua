@@ -80,7 +80,6 @@ return {
                 return vim.fn.executable 'make' == 1
             end
         },
-        'debugloop/telescope-undo.nvim',
     },
 
 
@@ -96,18 +95,10 @@ return {
                     override_file_sorter = true,
                     case_mode = 'smart_case'
                 },
-                undo = {
-                    side_by_side = true,
-                    layout_strategy = 'vertical',
-                    layout_config = {
-                        preview_height = 0.8
-                    }
-                },
             }
         })
 
         t.load_extension('fzf')
-        t.load_extension('undo')
 
         local km = vim.keymap
 
@@ -116,8 +107,6 @@ return {
         km.set('n', '<leader>fb', tb.buffers, { desc = 'Find Buffers (Telescope)' })
         km.set('n', '<leader>fh', tb.help_tags, { desc = 'Find Help (Telescope)' })
         km.set('n', '<leader>fs', tb.grep_string, { desc = 'Find - Grep String (Telescope)' })
-
-        km.set('n', '<leader>u', '<cmd>Telescope undo<cr>', { desc = 'Toggle undo tree (Telescope)' })
 
         km.set('n', '<leader>/', buffer_fuzzy_find, { desc = 'Find in Buffer (Telescope)' })
         km.set('n', '<leader>f/', live_grep_glob, { desc = 'Find - Grep Live (*glob*) (Telescope Extension)' })

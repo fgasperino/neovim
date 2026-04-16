@@ -73,8 +73,7 @@ return {
         config = function()
             require('conjure.main').main()
             require('conjure.mapping')['on-filetype']()
-
-            vim.keymap.set('n', '<leader>lgd', vim.lsp.buf.definition, { desc = "Go to definition (LSP})" })
+            
             vim.keymap.set('n', '<leader>cvt', "<cmd>ConjureEval (do (require '[user]) (user/view-tap-queue!))<cr>",
                 { desc = 'View conjure tap queue' })
             vim.keymap.set('n', '<leader>cssb', find_shadow_builds,
@@ -120,7 +119,7 @@ return {
         -- https://github.com/julienvincent/nvim-paredit
         'julienvincent/nvim-paredit',
 
-        tag = 'v1.1.1',
+        tag = 'v1.2.0',
 
         config = function()
             local paredit = require('nvim-paredit')
