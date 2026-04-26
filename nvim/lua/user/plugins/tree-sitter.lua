@@ -2,50 +2,56 @@ return {
     -- https://github.com/nvim-treesitter/nvim-treesitter
     'nvim-treesitter/nvim-treesitter',
 
+    branch = 'main',
+    lazy = false,     -- REQUIRED: No lazy loading supported
+
     dependencies = {
         'nvim-treesitter/nvim-treesitter-textobjects'
     },
 
-    tag = 'v0.10.0',
-
     build = ':TSUpdate',
 
     config = function()
-        require('nvim-treesitter.configs').setup({
-            ensure_installed = {
-                'lua',
-                'vim',
-                'vimdoc',
-                'bash',
-                'clojure',
-                'python',
-                'java',
-                'markdown',
-                'markdown_inline',
-                'sql',
-                'html',
-                'javascript',
-                'dockerfile',
-                'json',
-            },
-            auto_install = true,
-            sync_install = false,
+        -- Basic setup (minimal)
+        require('nvim-treesitter').setup()
 
-            highlight = { enable = true },
-            indent = { enable = true },
-            incremental_selection = { enable = true },
-            textobjects = {
-                select = {
-                    enable = true,
-                    lookahead = true, -- Automatically jump forward to textobj
-                    keymaps = {
-                        ["af"] = "@function.outer",
-                        ["if"] = "@function.inner",
-                        ["ac"] = "@class.outer",
-                        ["ic"] = "@class.inner",
-                    },
-                },
+        -- Sync parser installation (waits for completion)
+        require('nvim-treesitter').install({
+            'lua',
+            'vim',
+            'vimdoc',
+            'bash',
+            'clojure',
+            'python',
+            'java',
+            'markdown',
+            'markdown_inline',
+            'sql',
+            'html',
+            'javascript',
+            'dockerfile',
+            'json'
+        }):wait(300000)  -- Wait max 5 minutes
+
+        -- Textobjects configuration (new API)
+        require('nvim-treesitter-textobjects').setup({
+            select = {
+                lookahead = true, -- Automatically jump forward to textobj
             },
         })
+
+        -- Textobjects keymaps (explicitly defined)
+        vim.keymap.set({ 'x', 'o' }, 'af', function()
+            require('nvim-treesitter-textobjects.select').select_textobject('@function.outer', 'textobjects')
+        end)
+        vim.keymap.set({ 'x', 'o' }, 'if', function()
+            require('nvim-treesitter-textobjects.select').select_textobject('@function.inner', 'textobjects')
+        end)
+        vim.keymap.set({ 'x', 'o' }, 'ac', function()
+            require('nvim-treesitter-textobjects.select').select_textobject('@class.outer', 'textobjects')
+        end)
+        vim.keymap.set({ 'x', 'o' }, 'ic', function()
+            require('nvim-treesitter-textobjects.select').select_textobject('@class.inner', 'textobjects')
+        end)
     end
 }

@@ -31,13 +31,4 @@ vim.api.nvim_create_autocmd({ "BufNew", "BufAdd", "BufEnter" }, {
   end,
 })
 
--- Treesitter folding for Clojure
-vim.api.nvim_create_autocmd("FileType", {
-    pattern = "clojure",
-    callback = function()
-        vim.opt_local.foldmethod = 'expr'
-        vim.opt_local.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
-        -- Start with all folds open
-        vim.opt_local.foldenable = false
-    end
-})
+
